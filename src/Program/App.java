@@ -1,7 +1,6 @@
 package Program;
 
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Scanner;
 
 import Entity.Client;
@@ -12,7 +11,7 @@ public class App {
     public static void main(String[] args) {
         Scanner sc =new Scanner(System.in);
 
-        List<Client> db = new ArrayList<>();
+        ArrayList<Client> db = new ArrayList<>();
         String ID;
         String name;
         String services;
@@ -21,7 +20,8 @@ public class App {
         
         do {
             System.out.println("Selecione: 1 para cadastar um Cliente");
-            System.out.println("seleciona: 2 para verifacar se o cliente contratou o serviço");
+            System.out.println("selecione: 2 para verifacar se o cliente contratou o serviço");
+            System.out.println("Selecione: 3 para verificar se o cliente contratou o combo");
             System.out.println("Selecione: 9 para sair");
             select = sc.nextInt();
             switch (select) {
@@ -36,7 +36,7 @@ public class App {
                     Db.register(db, ID, name, services);
                     break;
                 case 2:
-                    System.out.print("Informe o ID ou o nome do cliente :");
+                    System.out.print("Informe o ID ou o nome do cliente : ");
                     sc.nextLine();
                     ID = sc.nextLine();
                     System.out.print("Informe o servoço que desaja verificar : ");
@@ -44,7 +44,10 @@ public class App {
                     TelephoneServices.checkServiceVerification(db, ID, services);
                     break;
                 case 3:
-
+                    System.out.print("Informe o ID ou o nome do cliente : ");
+                    sc.nextLine();
+                    ID = sc.nextLine() ;
+                    TelephoneServices.checkCompleteCombo(db, ID);
                     break;
                 default:
                     break;

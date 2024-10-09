@@ -1,10 +1,11 @@
 package Entity;
 
-import java.util.List;
+import java.util.ArrayList;
+
 
 public class TelephoneServices {
 
-    public static void checkServiceVerification(List<Client> db,String ID,String service){
+    public static void checkServiceVerification(ArrayList<Client> db,String ID,String service){
         boolean contracted = false;
         for(Client client : db){
            if(client.getID().equals(ID)){
@@ -26,7 +27,7 @@ public class TelephoneServices {
 
     }
     
-    public static void checkCompleteCombo(List<Client>db,String ID){
+    public static void checkCompleteCombo(ArrayList<Client>db,String ID){
 
         String [] servicesContracted =new String [5];
         boolean mobileContractor = false;
