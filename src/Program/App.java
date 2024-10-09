@@ -6,32 +6,42 @@ import java.util.Scanner;
 
 import Entity.Client;
 import Entity.Db;
+import Entity.TelephoneServices;
 
 public class App {
     public static void main(String[] args) {
         Scanner sc =new Scanner(System.in);
 
         List<Client> db = new ArrayList<>();
+        String ID;
+        String name;
+        String services;
         Db.Add(db);
         int select = 0;
         
         do {
             System.out.println("Selecione: 1 para cadastar um Cliente");
+            System.out.println("seleciona: 2 para verifacar se o cliente contratou o serviço");
             System.out.println("Selecione: 9 para sair");
             select = sc.nextInt();
             switch (select) {
                 case 1:
                     System.out.print("Digite o codigo do Cliente : ");
-                    String ID = sc.next().trim().toLowerCase();
+                    ID = sc.next().trim().toLowerCase();
                     sc.nextLine();
                     System.out.print("Digite o nome do cliente : ");
-                    String name = sc.nextLine().trim().toLowerCase();
+                    name = sc.nextLine().trim().toLowerCase();
                     System.out.print("Digite os servições contradatos pelo cliente, separe os servições por ',' :");
-                    String services = sc.nextLine().trim().toLowerCase();
+                    services = sc.nextLine().trim().toLowerCase();
                     Db.register(db, ID, name, services);
                     break;
                 case 2:
-
+                    System.out.print("Informe o ID ou o nome do cliente :");
+                    sc.nextLine();
+                    ID = sc.nextLine();
+                    System.out.print("Informe o servoço que desaja verificar : ");
+                    services = sc.nextLine();
+                    TelephoneServices.checkServiceVerification(db, ID, services);
                     break;
                 case 3:
 
