@@ -3,7 +3,7 @@ package Entity;
 
 public class Client {
 
-    private int ID;
+    private String ID;
     private String name;
     private String services;
 
@@ -12,17 +12,17 @@ public class Client {
 
     }
 
-    public void setClient(int ID,String name,String services){
+    public void setClient(String ID,String name,String services){
         this.ID = ID;
         this.name=name;
         this.services = services;
     }
 
-    public int getID() {
+    public String getID() {
         return ID;
     }
 
-    public void setID(int iD) {
+    public void setID(String iD) {
         ID = iD;
     }
 
