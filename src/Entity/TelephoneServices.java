@@ -45,6 +45,11 @@ public class TelephoneServices {
                     if(servicesContracted[i].equals("tv")){
                         tvContracted = true;
                     }
+                    if (mobileContractor == true && contractedBroadband == true && tvContracted == true) {
+                        System.out.println("Combo Completo");
+                    } else {
+                        System.out.println("Combo Incompleto");
+                    }
             }        
             
         }
@@ -59,6 +64,11 @@ public class TelephoneServices {
                     }
                     if(servicesContracted[i].equals("tv")){
                         tvContracted = true;
+                    }
+                    if (mobileContractor == true && contractedBroadband == true && tvContracted == true) {
+                        System.out.println("Combo Completo");
+                    } else {
+                        System.out.println("Combo Incompleto");
                     }
                 }   
 
