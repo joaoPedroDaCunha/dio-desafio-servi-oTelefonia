@@ -12,6 +12,12 @@ public class Client {
 
     }
 
+    Client(String ID,String name,String services){
+        this.ID = ID;
+        this.name = name;
+        this.services = services;
+    }
+
     public void setClient(String ID,String name,String services){
         this.ID = ID;
         this.name=name;

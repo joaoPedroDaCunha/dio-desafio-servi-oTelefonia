@@ -1,38 +1,23 @@
 package Entity;
 
 import java.util.ArrayList;
+import java.util.List;
 
 
 public class Db {
 
-    static Client db = new Client();
+    List<Client> Db;
     
-    public static void Add(ArrayList<Client> Db){
-        db.setClient("1", "jorge", "movel,banda larga");
-        Db.add(db);
-        db.setClient("2", "maria", "banda larga,tv");
-        Db.add(db);
-        db.setClient("3", "mateus", "tv");
-        Db.add(db);
-        db.setClient("4", "felipe", "banda larga,movel");
-        Db.add(db);
-        db.setClient("5", "marcio", "banda larga,tv");
-        Db.add(db);
-        db.setClient("6", "maria", "banda larga,tv,movel");
-        Db.add(db);
-        db.setClient("7", "ana", "movel,banda larga");
-        Db.add(db);
-        db.setClient("8", "beatriz", "tv,banda larga");
-        Db.add(db);
-        db.setClient("9", "mariana", "tv,banda larga,movel");
-        Db.add(db);
-        db.setClient("10", "giovana", "banda larga");
-        Db.add(db);
+    public Db() {
+        this.Db = new ArrayList<>();
     }
 
-    public static void register(ArrayList<Client> Db,String ID,String name,String service){
-        db.setClient(ID, name, service);
-        Db.add(db);
+    public void Add(){
+       Db.add(new Client("1","jorge","movel,tv"));
+    }
+
+    public void register(String ID,String name,String services){
+       Db.add(new Client(ID,name,services));
     }
 
 }

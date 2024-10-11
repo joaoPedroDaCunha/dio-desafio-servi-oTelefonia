@@ -1,21 +1,20 @@
 package Entity;
 
-import java.util.ArrayList;
 
 
 public class TelephoneServices {
 
-    public static void checkServiceVerification(ArrayList<Client> db,String ID,String service){
+    public static void checkServiceVerification(Db db,String ID,String service){
         boolean contracted = false;
-        for(Client client : db){
+        for(Client client : db.Db){
            if(client.getID().equals(ID)){
-            if(service.equals(client.getServices())){
+            if(client.getServices().contains(service)){
                 contracted = true;
                 System.out.println("Sim");
               }
            }
            if(client.getName().equals(ID)){
-            if(service.equals(client.getServices())){
+            if(client.getServices().contains(service)){
                 contracted = true;
                 System.out.println("Sim");
               }
@@ -27,13 +26,13 @@ public class TelephoneServices {
 
     }
     
-    public static void checkCompleteCombo(ArrayList<Client>db,String ID){
+    public static void checkCompleteCombo(Db db,String ID){
 
         String [] servicesContracted =new String [5];
         boolean mobileContractor = false;
         boolean contractedBroadband = false;
         boolean tvContracted = false;
-        for(Client client : db){
+        for(Client client : db.Db){
             if(client.getName().equals(ID)){
                 servicesContracted = client.getServices().split(",");
                 for (int i=0;i<servicesContracted.length;i++) {
@@ -46,12 +45,12 @@ public class TelephoneServices {
                     if(servicesContracted[i].equals("tv")){
                         tvContracted = true;
                     }
-                    if (mobileContractor == true && contractedBroadband == true && tvContracted == true) {
-                        System.out.println("Combo Completo");
-                    } else {
-                        System.out.println("Combo Incompleto");
-                    }
-            }        
+            }
+            if (mobileContractor == true && contractedBroadband == true && tvContracted == true) {
+                System.out.println("Combo Completo");
+            } else {
+                System.out.println("Combo Incompleto");
+            }       
             
         }
             if(client.getID().equals(ID)){
@@ -66,12 +65,13 @@ public class TelephoneServices {
                     if(servicesContracted[i].equals("tv")){
                         tvContracted = true;
                     }
-                    if (mobileContractor == true && contractedBroadband == true && tvContracted == true) {
-                        System.out.println("Combo Completo");
-                    } else {
-                        System.out.println("Combo Incompleto");
-                    }
-                }   
+                   
+                }  
+                if (mobileContractor == true && contractedBroadband == true && tvContracted == true) {
+                    System.out.println("Combo Completo");
+                } else {
+                    System.out.println("Combo Incompleto");
+                }
 
             }
             
