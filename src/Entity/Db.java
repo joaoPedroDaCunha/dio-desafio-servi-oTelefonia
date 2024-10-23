@@ -1,15 +1,16 @@
 package Entity;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Set;
+import java.util.HashSet;
+
 
 
 public class Db {
 
-    private List<Client> listClient;
+    private Set<Client> listClient;
     
     public Db() {
-        this.listClient = new ArrayList<>();
+        this.listClient = new HashSet<>();
     }
 
     public void register(String ID,String name,String services){

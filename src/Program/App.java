@@ -20,6 +20,8 @@ public class App {
             System.out.println("Selecione: 1 para cadastar um Cliente");
             System.out.println("selecione: 2 para verifacar se o cliente contratou o serviço");
             System.out.println("Selecione: 3 para verificar se o cliente contratou o combo");
+            System.out.println("Selecione: 4 para mostar os clientes registrados");
+            System.out.println("Selecione: 5 para remover um cliente");
             System.out.println("Selecione: 9 para sair");
             select = sc.nextInt();
             switch (select) {
@@ -37,7 +39,7 @@ public class App {
                     System.out.print("Informe o ID ou o nome do cliente : ");
                     sc.nextLine();
                     ID = sc.nextLine();
-                    System.out.print("Informe o servoço que desaja verificar : ");
+                    System.out.print("Informe o serviço que desaja verificar : ");
                     services = sc.nextLine();
                     db.checkServiceVerification(ID, services);
                     break;
@@ -47,6 +49,13 @@ public class App {
                     ID = sc.nextLine() ;
                     db.checkCompleteCombo(ID);
                     break;
+                case 4:
+                    db.viewListClient();
+                    break;
+                case 5:
+                    System.out.println("Digite o ID do cliente que dejesa apagar :");
+                    ID = sc.nextLine().trim().toLowerCase();
+                    db.removeById(ID);
                 default:
                     break;
             }
