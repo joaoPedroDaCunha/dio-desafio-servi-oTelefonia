@@ -4,27 +4,6 @@ package Entity;
 
 public class TelephoneServices {
 
-    public static void checkServiceVerification(Db db,String ID,String service){
-        boolean contracted = false;
-        for(Client client : db.Db){
-           if(client.getID().equals(ID)){
-            if(client.getServices().contains(service)){
-                contracted = true;
-                System.out.println("Sim");
-              }
-           }
-           if(client.getName().equals(ID)){
-            if(client.getServices().contains(service)){
-                contracted = true;
-                System.out.println("Sim");
-              }
-           }
-          }
-          if(contracted == false){
-            System.out.println("Nao");
-          }
-
-    }
     
     public static void checkCompleteCombo(Db db,String ID){
 

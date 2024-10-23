@@ -15,7 +15,6 @@ public class App {
         String ID;
         String name;
         String services;
-        db.Add();
         int select = 0;
         
         do {
@@ -41,7 +40,7 @@ public class App {
                     ID = sc.nextLine();
                     System.out.print("Informe o servoço que desaja verificar : ");
                     services = sc.nextLine();
-                    TelephoneServices.checkServiceVerification(db, ID, services);
+                    db.checkServiceVerification(ID, services);
                     break;
                 case 3:
                     System.out.print("Informe o ID ou o nome do cliente : ");
