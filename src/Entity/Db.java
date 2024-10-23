@@ -27,6 +27,10 @@ public class Db {
         }
     }
 
+    public void viewListClient(){
+        System.out.println(listClient);
+    }
+
     public void checkServiceVerification(String ID,String service){
         boolean contracted = false;
         for(Client client : listClient){
