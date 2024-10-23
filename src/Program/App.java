@@ -5,7 +5,6 @@ import java.util.Scanner;
 
 
 import Entity.Db;
-import Entity.TelephoneServices;
 
 public class App {
     public static void main(String[] args) {
@@ -46,7 +45,7 @@ public class App {
                     System.out.print("Informe o ID ou o nome do cliente : ");
                     sc.nextLine();
                     ID = sc.nextLine() ;
-                    TelephoneServices.checkCompleteCombo(db, ID);
+                    db.checkCompleteCombo(ID);
                     break;
                 default:
                     break;
