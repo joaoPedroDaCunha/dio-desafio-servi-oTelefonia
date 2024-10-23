@@ -1,6 +1,7 @@
 package Entity;
 
 import java.util.Set;
+import java.util.TreeSet;
 import java.util.HashSet;
 
 
@@ -28,8 +29,9 @@ public class Db {
         }
     }
 
-    public void viewListClient(){
-        System.out.println(listClient);
+    public Set<Client> viewListClientByName(){
+        Set<Client> clientByName = new TreeSet<>(listClient);
+        return clientByName;
     }
 
     public void checkServiceVerification(String ID,String service){

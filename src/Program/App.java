@@ -50,7 +50,7 @@ public class App {
                     db.checkCompleteCombo(ID);
                     break;
                 case 4:
-                    db.viewListClient();
+                    System.out.println(db.viewListClientByName());
                     break;
                 case 5:
                     System.out.println("Digite o ID do cliente que dejesa apagar :");

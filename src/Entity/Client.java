@@ -1,7 +1,7 @@
 package Entity;
 
 
-public class Client {
+public class Client implements Comparable<Client>{
 
     private String ID;
     private String name;
@@ -76,6 +76,11 @@ public class Client {
         } else if (!ID.equals(other.ID))
             return false;
         return true;
+    }
+
+    @Override
+    public int compareTo(Client o) {
+        return name.compareToIgnoreCase(o.getName());
     }
 
     
