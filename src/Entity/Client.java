@@ -18,12 +18,6 @@ public class Client implements Comparable<Client>{
         this.services = services;
     }
 
-    public void setClient(String ID,String name,String services){
-        this.ID = ID;
-        this.name=name;
-        this.services = services;
-    }
-
     public String getID() {
         return ID;
     }

@@ -7,7 +7,7 @@ import java.util.Scanner;
 import Entity.Db;
 
 public class App {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws RuntimeException {
         Scanner sc =new Scanner(System.in);
 
         Db db = new Db();
@@ -53,6 +53,7 @@ public class App {
                     System.out.println(db.viewListClientByName());
                     break;
                 case 5:
+                    sc.nextLine();
                     System.out.println("Digite o ID do cliente que dejesa apagar :");
                     ID = sc.nextLine().trim().toLowerCase();
                     db.removeById(ID);
