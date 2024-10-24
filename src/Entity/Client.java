@@ -44,7 +44,7 @@ public class Client implements Comparable<Client>{
 
     @Override
     public String toString() {
-        return "Client [ID=" + ID + ", name=" + name + ", services=" + services + "]";
+        return "ID=" + ID + ", name=" + name + ", services=" + services + " ";
     }
 
     @Override

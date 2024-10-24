@@ -9,6 +9,7 @@ import java.util.HashSet;
 public class Db {
 
     private Set<Client> listClient;
+    boolean contracted;
     
     public Db() {
         this.listClient = new HashSet<>();
@@ -34,24 +35,18 @@ public class Db {
     }
 
     public void checkServiceVerification(String ID,String service){
-        boolean contracted = false;
-        for(Client client : listClient){
-           if(client.getID().equals(ID)){
-            if(client.getServices().contains(service)){
-                contracted = true;
-                System.out.println("Sim");
-              }
-           }
-           if(client.getName().equals(ID)){
-            if(client.getServices().contains(service)){
-                contracted = true;
-                System.out.println("Sim");
-              }
-           }
-          }
-          if(contracted == false){
-            System.out.println("Nao");
-          }
+        contracted = false;
+        if(!listClient.isEmpty()){
+            listClient.stream().filter(client -> client.getID().equals(ID)||client.getName().contains(ID)).forEach(client -> {
+                if(client.getServices().contains(service)){
+                    contracted = true;
+                    System.out.println("serviço contratado");
+                }else{
+                    contracted = false;
+                    System.out.println("serviço não cotratado");
+                }
+            });
+        }        
 
     }
 
