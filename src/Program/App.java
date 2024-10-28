@@ -16,6 +16,7 @@ public class App {
         String services;
         int select = 0;
         
+       try {
         do {
             System.out.println("Selecione: 1 para cadastar um Cliente");
             System.out.println("selecione: 2 para verifacar se o cliente contratou o serviço");
@@ -62,6 +63,9 @@ public class App {
             }
             
         } while (select != 9);
+       } catch (RuntimeException e) {
+        System.out.println(e.getMessage());
+       }
 
         sc.close();
     }
