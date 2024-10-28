@@ -9,7 +9,9 @@ import java.util.HashSet;
 public class Db {
 
     private Set<Client> listClient;
-    boolean contracted;
+    @SuppressWarnings("unused")
+    private boolean contracted;
+
     
     public Db() {
         this.listClient = new HashSet<>();
@@ -46,54 +48,22 @@ public class Db {
                     System.out.println("serviço não cotratado");
                 }
             });
+        }else {
+            throw new RuntimeException("Não existe registros na lista");
         }        
 
     }
 
     public void checkCompleteCombo(String ID){
-        boolean mobileContractor = false;
-        boolean contractedBroadband = false;
-        boolean tvContracted = false;
         if(!listClient.isEmpty()){
-            for(Client client : listClient){
-                if(client.getName().equals(ID)){
-                    if(client.getServices().contains("movel")){
-                        mobileContractor = true;
-                    }
-                    if(client.getServices().contains("banda larga")){
-                        contractedBroadband = true;
-                    }
-                    if(client.getServices().contains("tv")){
-                        tvContracted = true;
-                    }
-    
-                    if (mobileContractor == true && contractedBroadband == true && tvContracted == true) {
-                        System.out.println("Combo Completo");
-                    } else {
-                        System.out.println("Combo Incompleto");
-                    }       
-                break;
-            }
-                if(client.getID().equals(ID)){
-                    if(client.getServices().contains("movel")){
-                        mobileContractor = true;
-                    }
-                    if(client.getServices().contains("banda larga")){
-                        contractedBroadband = true;
-                    }
-                    if(client.getServices().contains("tv")){
-                        tvContracted = true;
-                    }
-    
-                    if (mobileContractor == true && contractedBroadband == true && tvContracted == true) {
-                        System.out.println("Combo Completo");
-                    } else {
-                        System.out.println("Combo Incompleto");
-                    }     
-                    break;
-                }
-                
-            }
+            listClient.stream().filter(client -> client.getID().equalsIgnoreCase(ID)||client.getName().equalsIgnoreCase(ID))
+            .forEach(client ->{if(client.getServices().contains("tv")&&client.getServices().contains("movel")&&client.getServices().contains("banda larga")){
+                System.out.println("Combo completo");
+            }else{
+                System.out.println("combo imcompleto");
+            }});
+        }else{
+            throw new RuntimeException("Não existe registros na lista");
         }
     }
 }
