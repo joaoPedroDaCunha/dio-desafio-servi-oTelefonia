@@ -23,7 +23,12 @@ public class Db {
 
     public void removeById(String ID){
         if(!listClient.isEmpty()){
-            listClient.removeIf(client -> client.getID().equalsIgnoreCase(ID));
+            if(listClient.stream().anyMatch(client -> client.getID().equalsIgnoreCase(ID))){
+                listClient.removeIf(client -> client.getID().equalsIgnoreCase(ID));
+            }else{
+                throw new RuntimeException("Esse Cliente não existe");
+            }
+            
         }else{
             throw new RuntimeException("Não existe clientes registrados");
         }
