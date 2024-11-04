@@ -23,9 +23,7 @@ public class Db {
 
     public void removeById(String ID){
         if(!listClient.isEmpty()){
-            Set<Client> removeClients = new HashSet<>();
-            listClient.stream().filter(client -> client.getID().equals(ID)).forEach(client -> removeClients.add(client));
-            listClient.removeAll(removeClients);
+            listClient.removeIf(client -> client.getID().equalsIgnoreCase(ID));
         }else{
             throw new RuntimeException("Não existe clientes registrados");
         }
